@@ -31,7 +31,7 @@
 1:BoosterGuidance, BoosterGuidance.version
 
 # 2:PROJNAME, PROJFILE, VERSIONFILE, PLUGINSFOLDER
-2:BoosterGuidance,BoosterGuidance/BoosterGuidance.csproj,BoosterGuidance.version,GameData/BoosterGuidance/Plugins
+2:BoosterGuidance,Source/BoosterGuidance.csproj,BoosterGuidance.version,GameData/BoosterGuidance/Plugins
 
 # 3:SOURCEFILE, DESTDIR
 3:BoosterGuidance.version,GameData/BoosterGuidance
