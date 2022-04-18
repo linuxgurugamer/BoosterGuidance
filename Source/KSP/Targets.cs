@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UI;
-
 using KSPAssets;
+using static BoosterGuidance.InitLog;
 
 namespace BoosterGuidance
 {
@@ -24,7 +23,7 @@ namespace BoosterGuidance
       {
         if (_material == null) _material = new Material(Shader.Find("KSP/Particles/Additive"));
         if (_material == null) _material = new Material(Shader.Find("Particles/Additive"));
-        if (_material == null) Debug.Log("[BoosterGuidance] CRITICAL: Targets._material is null");
+        if (_material == null) Log.Info("CRITICAL: Targets._material is null");
         return _material;
       }
     }

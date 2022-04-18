@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using KSP;
 using ModuleWheels;
+using static BoosterGuidance.InitLog;
 
 namespace BoosterGuidance
 {
@@ -102,7 +103,7 @@ namespace BoosterGuidance
       minThrust = engine.GetEngineThrust(isp, 0); // can't get atmMinThrust (this ignore throttle limiting but thats ok)
       maxThrust = atmMaxThrust; // this uses throttle limiting and should give vac thrust as pressure/temp specified too
       if (log)
-        Debug.Log("  engine=" + engine + " isp=" + isp + " MinThrust=" + engine.GetEngineThrust(isp, 0) + " MaxThrust=" + atmMaxThrust + " operational=" + engine.isOperational);
+        Log.Info("GetEngineMinMaxThrust:  engine=" + engine + " isp=" + isp + " MinThrust=" + engine.GetEngineThrust(isp, 0) + " MaxThrust=" + atmMaxThrust + " operational=" + engine.isOperational);
     }
 
     public static List<ModuleEngines> ComputeMinMaxThrust(Vessel vessel, out double totalMinThrust, out double totalMaxThrust, bool log = false, List<ModuleEngines> useEngines = null)
@@ -152,7 +153,7 @@ namespace BoosterGuidance
     public static List<ModuleEngines> ShutdownOuterEngines(Vessel vessel, float desiredThrust, bool log = false)
     {
       List<ModuleEngines> shutdown = new List<ModuleEngines>();
-      Debug.Log("ShutdownOuterEngines desiredThrust=" + desiredThrust + " mass=" + vessel.totalMass);
+      Log.Info("ShutdownOuterEngines desiredThrust=" + desiredThrust + " mass=" + vessel.totalMass);
       // Find engine parts and sort by closest to centre first
       List<KeyValuePair<double, ModuleEngines>> allEngines = new List<KeyValuePair<double, ModuleEngines>>();
       foreach (Part part in vessel.GetActiveParts())
@@ -188,16 +189,16 @@ namespace BoosterGuidance
           if (engDist.Key > shutdownDist)
           {
             if (log)
-              Debug.Log("[BoosterGuidance] ComputeShutdownMinMaxThrust(): minThrust=" + minThrust + " desiredThrust=" + desiredThrust + " SHUTDOWN");
+              Log.Info("ComputeShutdownMinMaxThrust(): minThrust=" + minThrust + " desiredThrust=" + desiredThrust + " SHUTDOWN");
             engine.Shutdown();
             shutdown.Add(engine);
           }
           else
             if (log)
-              Debug.Log("[BoosterGuidance] ComputeShutdownMinMaxThrust(): minThrust=" + minThrust + " desiredThrust=" + desiredThrust + " KEEP");
+              Log.Info("ComputeShutdownMinMaxThrust(): minThrust=" + minThrust + " desiredThrust=" + desiredThrust + " KEEP");
         }
       }
-      Debug.Log(shutdown.Count + " engines shutdown");
+      Log.Info(shutdown.Count + " engines shutdown");
       return shutdown;
     }
 

@@ -1,3 +1,27 @@
+Changelog
+
+1.2.0
+	Adoption by LGG
+	Removed need to have FAR installed to compile, now accessing FAR via Reflection
+	Reorganized repo
+	Added InstallChecker and AssemblyVersion
+	Moved DLL into Plugins directory
+	Added missing Localization folder
+	Added support for the ClickThroughBlocker
+	Added support for the ToolbarController
+	Merged code in BoosterGuidanceApp.cs into the MainWindow.cs 
+	Added code to hide window controls if target is not set
+	Increased width of window slightly
+	Added sample F9 built with Tundra Exploration
+	Consolidated all logging functions into a single class
+	Moved Logging files into <KSPDIR>/Logs/BoosterGuidance/
+	Fixed issue with NullRefs caused by inconsistent logging calls
+	Added automatic enabling of RCS
+	Added automatic triggering of a desired action group
+	Added limitation of engine thrust vs where vessel is pointing
+	Moved Enable/disable guidance button to top of buttons, and changed Enable color to green, Disable color to red
+
+
 v1.1.2
 - Further tuning of dt to make simulation faster
 - Reduced internal transformation of position to reduce jitter
