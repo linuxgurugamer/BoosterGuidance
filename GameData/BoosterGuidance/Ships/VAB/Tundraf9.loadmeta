@@ -1,6 +1,6 @@
-shipName = Tundraf9
+shipName = f9
 description = 
-version = 1.12.0
+version = 1.12.2
 partCount = 17
 stageCount = 1
 totalCost = 64384.3984
